@@ -1,4 +1,35 @@
 '''
+Iterative
+'''
+
+class Solution:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        
+        def traverse(n):
+            
+            nonlocal stack
+            nonlocal res
+            
+            while n!=None or len(stack)!=0:
+                
+                while n!=None:
+                    stack.append(n)
+                    n = n.left
+                    
+                n = stack.pop()
+                res.append(n.val)
+                n = n.right
+            
+            return res
+        
+        stack, res = [], []
+        res = traverse(root)
+        
+        return res
+
+
+
+'''
 Recursive
 '''
 
