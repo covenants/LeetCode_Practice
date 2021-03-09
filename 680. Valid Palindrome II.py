@@ -19,3 +19,50 @@ class Solution:
                 return True
         
         return False
+
+    
+    
+    #### Another approach (not brute force)
+    class Solution:
+    def validPalindrome(self, s: str) -> bool:
+        
+        if len(s) == 0: 
+            return False
+        
+        if len(s) == 1:
+            return True
+        
+        if s == s[::-1]:
+            return True
+        
+        low = 0
+        high = len(s) -1
+        
+        def cp(s, low, high):
+            while low < high:
+                if s[low] != s[high]:
+                    return False
+                low +=1
+                high -=1
+            
+            return True
+        
+        
+        while low < high:
+            
+            if s[low] == s[high]:
+                low +=1
+                high -=1
+                
+            else:
+                # check if removing 1 character makes it palindrom
+                # if s[low+1..high] or s[low..high-1] is palindrom
+                if cp(s, low+1, high) or cp(s, low, high-1):
+                    return True
+                else:
+                    # else not palindrom
+                    return False
+        
+        # by default palindrom
+        return True
+                
