@@ -20,3 +20,21 @@ class Solution:
         
         return len(list(set(master_list)))
         
+
+        
+#/ * Simpler */
+class Solution:
+    def numTilePossibilities(self, tiles: str) -> int:
+        
+        from itertools import permutations
+
+        res = set()
+
+        for i in range(1, len(tiles)+1):
+            perm = permutations(tiles, i)
+            for p in perm:
+                res.add(p)
+
+        return len(res)
+        
+        
