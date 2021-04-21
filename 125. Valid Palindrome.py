@@ -1,6 +1,46 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         
+        if s == reversed(s):
+            return True
+        
+        if len(s) == 1:
+            return True
+        
+        left = 0
+        right = len(s) - 1
+        
+        while left <= right:
+            
+            while not s[left].isalnum():
+                left +=1
+                
+                # extra check to see if it has no alphanumeric ',.'
+                if left >= len(s):
+                    return True
+                
+            while not s[right].isalnum():
+                right -=1
+            
+            if s[left].lower() != s[right].lower():
+                return False
+            
+            left +=1
+            right -=1
+            
+            
+        return True
+        
+        
+        
+##########################################################        
+
+
+
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        
 
         
         s_new = []
