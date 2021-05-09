@@ -4,6 +4,9 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
+# official solution
+#
+
 
 class Codec:
 
